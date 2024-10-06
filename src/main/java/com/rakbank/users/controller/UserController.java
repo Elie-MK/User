@@ -28,7 +28,7 @@ public class UserController {
     public ResponseEntity<UserDto> createUser(@RequestBody UserRegistrationDto userDto) {
         log.info("Creating user: {}", userDto.getEmail());
         var result = userService.createUser(userDto);
-        return ResponseEntity.ok(result);
+        return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
     @GetMapping
@@ -41,7 +41,7 @@ public class UserController {
 
     @GetMapping("/{userId}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<UserDto> getUser(@PathVariable Long userId) {
+    public ResponseEntity<UserDto> getUserById(@PathVariable Long userId) {
         log.info("Getting user: {}", userId);
         var result = userService.getUserById(userId);
         return ResponseEntity.ok(result);
