@@ -23,6 +23,12 @@ public class UserController {
 
     private final UserService userService;
 
+    /**
+     * Creates a new user.
+     *
+     * @param userDto the user registration data transfer object containing user details
+     * @return ResponseEntity containing the created UserDto
+     */
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<UserDto> createUser(@RequestBody UserRegistrationDto userDto) {
@@ -31,6 +37,12 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
+    /**
+     * Retrieves a paginated list of all users.
+     *
+     * @param pageable the pagination information
+     * @return ResponseEntity containing a page of UserDto objects
+     */
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Page<UserDto>> getAllUsers(Pageable pageable) {
@@ -39,6 +51,12 @@ public class UserController {
         return ResponseEntity.ok(result);
     }
 
+    /**
+     * Retrieves a user by their ID.
+     *
+     * @param userId the ID of the user to retrieve
+     * @return ResponseEntity containing the UserDto of the requested user
+     */
     @GetMapping("/{userId}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<UserDto> getUserById(@PathVariable Long userId) {
@@ -47,6 +65,13 @@ public class UserController {
         return ResponseEntity.ok(result);
     }
 
+    /**
+     * Updates an existing user.
+     *
+     * @param userId the ID of the user to update
+     * @param user the user update data transfer object containing updated user details
+     * @return ResponseEntity containing the updated UserDto, if found
+     */
     @PutMapping("/{userId}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Optional<UserDto>> updateUser(@PathVariable Long userId, @RequestBody UserUpdateDto user) {
@@ -55,6 +80,13 @@ public class UserController {
         return ResponseEntity.ok(result);
     }
 
+    /**
+     * Changes the password of a user.
+     *
+     * @param userId the ID of the user whose password is to be changed
+     * @param user the user password data transfer object containing the new password
+     * @return ResponseEntity with a message indicating the result of the operation
+     */
     @PatchMapping("/{userId}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<String> changePassword( @PathVariable Long userId, @RequestBody UserPasswordDto user) {
@@ -63,6 +95,12 @@ public class UserController {
         return ResponseEntity.ok(result);
     }
 
+    /**
+     * Deletes a user by their ID.
+     *
+     * @param userId the ID of the user to delete
+     * @return ResponseEntity with a message indicating the result of the deletion
+     */
     @DeleteMapping("/{userId}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<String> deleteUser(@PathVariable Long userId){
