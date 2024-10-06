@@ -29,4 +29,9 @@ Make sure your computer has the following:
     * Right-click on the file and select "Run 'UsersApplication.main()' " 
 5. Check port availability 
     * The application will run on port 8080. Ensure that this port is not already taken by another application.
+6. Access Swagger UI
+   * You can access the swagger UI for API documentation at : 
+   ```
+   http://localhost:8080/swagger-ui/index.html#/
+   ```
 
