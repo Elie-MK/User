@@ -87,7 +87,7 @@ class UserControllerIT {
     void shouldCreateUser() throws Exception {
         int databaseSizeBeforeCreate = userRepository.findAll().size();
 
-        restUserMockMvc.perform(post("/api/user")
+        restUserMockMvc.perform(post("/api/user/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(TestUtil.convertObjectToJsonBytes(user))
                         .accept(MediaType.APPLICATION_JSON)

@@ -11,27 +11,33 @@ Make sure your computer has the following:
 
 ### Instructions
 
-1. Clone the repository
+* Clone the repository
     ``` 
     git clone https://github.com/Elie-MK/User.git 
     ```
-2. Open the project in IntelliJ IDEA 
+* Open the project in IntelliJ IDEA 
    * Launch IntelliJ IDEA
    * click on "Open" and select the cloned project directory
-
-3. Ensure Docker is running
+* Ensure Docker is running
    * Make sure Docker is running on your machine, especially when you run the unit tests.
-4. Run the project
+* Run the project
    * Navigate to the main application file
     ````
     users\src\main\java\com\rakbank\users\UsersApplication.java
     ````
-    * Right-click on the file and select "Run 'UsersApplication.main()' " 
-5. Check port availability 
+    * Right-click on the file and select "Run 'UsersApplication.main()' "
+* Check port availability 
     * The application will run on port 8080. Ensure that this port is not already taken by another application.
-6. Access Swagger UI
+* Access Swagger UI
    * You can access the swagger UI for API documentation at : 
    ```
    http://localhost:8080/swagger-ui/index.html#/
    ```
+* Build the JAR File
+   * Open your terminal or command prompt.
+   * Navigate to your project directory where the pom.xml file is located.
+   * Run the following command to build the JAR file:
+      ```
+      mvn clean package
+      ```
 

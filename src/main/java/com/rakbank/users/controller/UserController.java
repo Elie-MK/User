@@ -29,7 +29,7 @@ public class UserController {
      * @param userDto the user registration data transfer object containing user details
      * @return ResponseEntity containing the created UserDto
      */
-    @PostMapping
+    @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<UserDto> createUser(@RequestBody UserRegistrationDto userDto) {
         log.info("Creating user: {}", userDto.getEmail());
